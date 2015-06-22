@@ -1,10 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env sh
+set -euo pipefail
+IFS=$'\n\t'
 
-if [ -d /var/aur ]
+cd /var/cache
+
+if [ -d aur ]
 then
-  cd /var/aur
+  cd aur
   git pull
 else
-  cd /var
   git clone git://pkgbuild.com/aur-mirror.git aur
 fi
